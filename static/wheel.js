@@ -172,7 +172,7 @@ function closePopup() {
         msg = `Hey Team, I got ${lastWinText} for ${selectedModule}.`;
     }
 
-    const academyNumber = "917034942438";   // replace with your academy number
+    const academyNumber = "917907817287";   // replace with your academy number
     const url = `https://wa.me/${academyNumber}?text=${encodeURIComponent(msg)}`;
 
     window.open(url, "_blank");
