@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Module</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg,#141e30,#243b55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 360px;
+            padding: 40px;
+            background: rgba(0,0,0,0.75);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255,215,0,0.5);
+            animation: floatIn 1s ease;
+            text-align: center;
+        }
+
+        .card h1 {
+            color: gold;
+            margin-bottom: 20px;
+        }
+
+        .card input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .card button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            background: gold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        @keyframes floatIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🎓 Choose Your Module</h1>
+    <form method="POST">
+        <input type="text" name="module" placeholder="Enter Module (Sprechen, Lesen, Hören, Schreiben)" required>
+        <button>Continue</button>
+    </form>
+</div>
+
+</body>
+</html>

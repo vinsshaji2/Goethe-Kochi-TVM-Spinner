@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spin & Win</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>🎯 Spin & Win Offer Booking 🎯</h1>
+
+<div id="wheelContainer">
+    <div id="pointer">🔻</div>
+    <canvas id="wheelCanvas" width="550" height="550"></canvas>
+</div>
+
+<button id="spinBtn">SPIN NOW</button>
+
+<div id="result"></div>
+
+<div id="popup" class="popup hidden">
+    <div class="popup-box">
+        <h2 id="popupText"></h2>
+        <button onclick="closePopup()">Awesome!</button>
+    </div>
+</div>
+
+<script>
+fetch("/spin").then(r=>r.json()).then(data=>{
+    window.dynamicOffers = data.offers;
+});
+</script>
+
+<script src="/static/wheel.js"></script>
+</body>
+</html>
