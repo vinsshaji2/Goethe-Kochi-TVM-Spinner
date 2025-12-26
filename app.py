@@ -28,7 +28,7 @@ def spin():
         "20% Discount",
         "15% Discount",
         "Next Registration 50% Discount",
-        "Exam Tips",
+        "Registration for ₹1700",
         "Registration for ₹1500"
     ]
 
@@ -37,9 +37,9 @@ def spin():
         "20% Discount",
         "15% Discount",
         "Next Registration 50% Discount",
-        "Exam Tips",
         "Registration for ₹1000",
-        "Registration for ₹1200"
+        "Registration for ₹1200",
+        "Registration for ₹1300"
     ]
 
     if "sprechen" in module:
