@@ -13,6 +13,7 @@ let spinning = false;
 let basePrice = 0;
 let selectedModule = "";
 let lastWinText = "";
+let hasSpun = false;
 
 
 // 🎨 Draw the wheel
@@ -131,6 +132,21 @@ function loadWheel() {
     if (loaded) return;
     loaded = true;
 
+    // If already spun in this session
+    if (sessionStorage.getItem("hasSpun")) {
+        lastWinText = sessionStorage.getItem("winText");
+        selectedModule = sessionStorage.getItem("module");
+        basePrice = parseInt(sessionStorage.getItem("basePrice"));
+
+        alert("You already spun the wheel! Redirecting you to WhatsApp with your offer...");
+
+        setTimeout(() => {
+            closePopup();   // will redirect to WhatsApp with stored offer
+        }, 500);
+
+        return;
+    }
+
     fetch("/spin")
         .then(res => res.json())
         .then(data => {
@@ -147,16 +163,25 @@ loadWheel();
 // 🎉 Popup
 function showWinPopup(text) {
     lastWinText = text;
+
+    // Save win in browser session
+    sessionStorage.setItem("hasSpun", "true");
+    sessionStorage.setItem("winText", text);
+    sessionStorage.setItem("module", selectedModule);
+    sessionStorage.setItem("basePrice", basePrice);
+
     document.getElementById("popupText").innerText = "🎉 You Won: " + text;
     document.getElementById("popup").classList.remove("hidden");
 }
 
 
-function closePopup() {
-    document.getElementById("popup").classList.add("hidden");
-}
 
 function closePopup() {
+
+    lastWinText = lastWinText || sessionStorage.getItem("winText");
+    selectedModule = selectedModule || sessionStorage.getItem("module");
+    basePrice = basePrice || parseInt(sessionStorage.getItem("basePrice"));
+
     let msg = "";
     const percentMatch = lastWinText.match(/^(\d+)% Discount$/);
 
@@ -172,12 +197,13 @@ function closePopup() {
         msg = `Hey Team, I got ${lastWinText} for ${selectedModule}.`;
     }
 
-    const academyNumber = "917907817287";   // replace with your academy number
+    const academyNumber = "917907817287";
     const url = `https://wa.me/${academyNumber}?text=${encodeURIComponent(msg)}`;
 
     window.open(url, "_blank");
 
     document.getElementById("popup").classList.add("hidden");
 }
+
 
 
