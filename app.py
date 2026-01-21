@@ -26,7 +26,7 @@ def spin():
     sprechen_offers = [
         "5% Discount",
         "10% Discount",
-        "25% Discount",
+        "15% Discount",
         "12% Discount",
         "Next Registration 50% Discount",
         "Registration for ₹1700",
