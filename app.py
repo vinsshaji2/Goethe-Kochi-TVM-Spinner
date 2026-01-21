@@ -24,22 +24,24 @@ def spin():
     module = session.get("module", "").lower()
 
     sprechen_offers = [
+        "5% Discount",
         "10% Discount",
-        "20% Discount",
-        "15% Discount",
+        "25% Discount",
+        "12% Discount",
         "Next Registration 50% Discount",
         "Registration for ₹1700",
         "Registration for ₹1500"
     ]
 
     other_offers = [
+        "5% Discount",
         "10% Discount",
-        "20% Discount",
+        "12% Discount",
         "15% Discount",
         "Next Registration 50% Discount",
-        "Registration for ₹1000",
         "Registration for ₹1200",
-        "Registration for ₹1300"
+        "Registration for ₹1300",
+        "Registration for ₹1400"
     ]
 
     if "sprechen" in module:
